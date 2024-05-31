@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://taskDetailView.title"
+      focusComponent="form">
+    <data>
+        <instance id="taskDc"
+                  class="com.company.taskmonitoringsystem.entity.Task">
+            <fetchPlan extends="_base"/>
+            <loader/>
+        </instance>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <actions>
+        <action id="saveAction" type="detail_saveClose"/>
+        <action id="closeAction" type="detail_close"/>
+    </actions>
+    <layout>
+        <formLayout id="form" dataContainer="taskDc">
+            <select id="eventField" property="event"/>
+            <textField id="topicField" property="topic"/>
+            <datePicker id="dateField" property="date"/>
+            <textArea id="discussionField" property="discussion"/>
+            <textArea id="deliverableField" property="deliverable"/>
+            <textArea id="descriptionField" property="description"/>
+            <textField id="responsibleField" property="responsible"/>
+            <textField id="copiedInField" property="copiedIn"/>
+            <datePicker id="dueDateField" property="dueDate"/>
+            <textField id="durationField" property="duration"/>
+            <select id="statusField" property="status"/>
+        </formLayout>
+        <hbox id="detailActions">
+            <button id="saveAndCloseBtn" action="saveAction"/>
+            <button id="closeBtn" action="closeAction"/>
+        </hbox>
+    </layout>
+</view>
